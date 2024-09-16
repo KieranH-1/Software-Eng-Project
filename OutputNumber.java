@@ -1,4 +1,4 @@
 
 public class OutputNumber {
-	int outputNumber;
+   int outputNumber;
 }
