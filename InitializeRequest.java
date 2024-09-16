@@ -1,4 +1,4 @@
 
 public class InitializeRequest {
-	boolean initialized;
+   boolean initialized;
 }
