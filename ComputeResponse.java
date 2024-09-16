@@ -1,3 +1,3 @@
 public interface ComputeResponse {
-	OutputNumber getOutput();
+      OutputNumber getOutput();
 }
