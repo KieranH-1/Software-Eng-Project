@@ -1,4 +1,4 @@
-public interface InputResponse {
+public interface InputResponseCompute {
 
    InputNumber getInputNumber();
 
