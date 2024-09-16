@@ -1,10 +1,9 @@
-
 public interface InputResponse {
 
-	InputNumber getInputNumber();
+   InputNumber getInputNumber();
 
-	Delimiter getInputOutputDelim();
+   Delimiter getInputOutputDelim();
 
-	Delimiter getOutputInputDelim();
+   Delimiter getOutputInputDelim();
 
 }
