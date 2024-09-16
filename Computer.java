@@ -1,3 +1,3 @@
 public interface Computer {
-	ComputeResponse computeOutput(InputNumber inputNumber);
+ComputeResponse computeOutput(InputNumber inputNumber);
 }
