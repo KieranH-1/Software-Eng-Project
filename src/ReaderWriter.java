@@ -3,8 +3,8 @@ public interface ReaderWriter {
 
    InitializeResponse initialize(InitializeRequest initializeRequest);
 
-   InputResponse readInput(InputRequest inputRequest);
+   InputNumberResponse readInput(InputRequest inputRequest);
 
-   OutputResponse writeOutput(OutputNumber output, Delimiter inputOutputDelim, Delimiter outputInputDelim);
+   OutputNumberResponse writeOutput(OutputNumber output, Delimiter inputOutputDelim, Delimiter outputInputDelim);
 
 }
