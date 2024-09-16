@@ -1,4 +1,3 @@
-
 public class PrototypeCompute {
 	public void prototypeComputer(ReaderWriter readerWriter, Computer computer) {
 		//initialize program
@@ -14,6 +13,6 @@ public class PrototypeCompute {
 		//get output and write down output number
 		Delimiter inputOutputDelim = inputResponse.getInputOutputDelim();
 		Delimiter outputInputDelim = inputResponse.getOutputInputDelim();
-		OutputResponse outputResponse = readerWriter.writeOutput(computeResponse.getOutput(), inputOutputDelim, outputInputDelim);		
+		OutputResponse outputResponse = readerWriter.writeOutput(computeResponse.getOutput(), inputOutputDelim, outputInputDelim);
 	}
 }
