@@ -12,6 +12,6 @@ public class PrototypeCompute {
       //get output and write down output number
       Delimiter inputOutputDelim = inputResponse.getInputOutputDelim();
       Delimiter outputInputDelim = inputResponse.getOutputInputDelim();
-      OutputResponse outputResponse = readerWriter.writeOutput(computeResponse.getOutput(), inputOutputDelim, outputInputDelim);
+      OutputNumberResponse outputResponse = readerWriter.writeOutput(computeResponse.getOutput(), inputOutputDelim, outputInputDelim);
       }
 }
