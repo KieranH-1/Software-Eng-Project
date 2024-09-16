@@ -3,7 +3,7 @@ public class PrototypeCompute {
       //initialize program
       InitializeResponse initalizeResponse = readerWriter.initialize(new InitializeRequest());
       //read input number and delimiters
-      InputResponse inputResponse = readerWriter.readInput(new InputRequest());
+      InputNumberResponse inputResponse = readerWriter.readInput(new InputRequest());
 
       //compute output
       InputNumber inputNumber = inputResponse.getInputNumber();
