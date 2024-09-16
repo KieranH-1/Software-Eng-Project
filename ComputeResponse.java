@@ -1,6 +1,4 @@
 
-public interface ComputeResponse {
-	
+public interface ComputeResponse {	
 	OutputNumber getOutput();
-
 }
