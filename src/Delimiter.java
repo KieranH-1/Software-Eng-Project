@@ -1,4 +1,4 @@
 
 public class Delimiter {
-   char delimiter;
+	char delimiter;
 }
