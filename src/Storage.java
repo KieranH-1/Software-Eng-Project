@@ -1,5 +1,5 @@
 
-public abstract class Storage{
+public interface Storage{
 	public void storage(StoreData data)
 	{
 		// store data
@@ -8,6 +8,8 @@ public abstract class Storage{
 		StorageLoadResponse loadData = data.loadData(storeData.getDataKey());
 	}
 
-	abstract ReadOutputResponse readFrom();
+	ReadOutputResponse readFrom();
+	ReadOutputResponse writeTo();
 
 }
+
