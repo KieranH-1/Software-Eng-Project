@@ -4,7 +4,8 @@ import java.io.*;
 public class DataPrototype {
 	public void dataProtoype(int userInput, String convertedUserInput, Source userSource, Storage storage) {
 
-		// User input will be pos int, returns String
+		// User input will be pos int
+		
 		// Create reader instance to properly process info
 		
 		// read input from user specified source 
