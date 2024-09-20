@@ -1,4 +1,4 @@
 
 public interface StorageAddResponse {
-	DataStorageKey getDataKey();
+	//DataStorageKey getDataKey();
 }
