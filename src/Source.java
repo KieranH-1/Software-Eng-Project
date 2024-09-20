@@ -1,5 +1,4 @@
 
-public abstract class Source {
+public interface Source {
 
-	protected abstract ReadInputResponse readFrom();
 }
