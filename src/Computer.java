@@ -1,5 +1,5 @@
 
 public interface Computer {
 
-	ComputeResponse computeOutput(InputNumber inputNumber);
+	String compute(int inputNumber, char delimInputOutput, char delimOutputInput);
 }
