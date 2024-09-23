@@ -1,5 +1,5 @@
-public class DataPrototype {
-	public void dataProtoype(int userInput, String convertedUserInput, Source userSource, Storage storage, ReadWrite readWrite) {
+public interface DataPrototype {
+	public default void dataProtoype(int userInput, String convertedUserInput, Source userSource, Storage storage, ReadWrite readWrite) {
 
 		// read input from user specified source 
 		ReadInputResponse readInput = readWrite.readFrom(userSource);
