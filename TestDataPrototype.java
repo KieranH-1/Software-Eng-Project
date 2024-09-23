@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 //import org.mockito.Mockito;
 
 
-public class TestDataPrototype
-{
+public class TestDataPrototype{
 	List<Integer> intList = Arrays.asList(1, 2, 3); 
 	List<String> stringList = new ArrayList<String>();
 	
