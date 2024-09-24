@@ -25,7 +25,7 @@ public class TestDataStorePrototype {
 		//TEST read
 		//@Test
 		loadData = mockDataStore.read(mockInput);
-		if(loadData != mockInput){
+		if (loadData != mockInput){
 			fail();
 		}
 			
