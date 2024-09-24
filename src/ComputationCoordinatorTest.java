@@ -16,7 +16,7 @@ public class ComputationCoordinatorTest {
         ComputeRequest request = new ComputeRequest(mockInputConfig, mockOutputConfig);
 
         ComputeResult result = mockCC.compute(request);
-        if(!result.equals("one")) {
+        if (!result.equals("one")) {
             fail();
         }
     }
