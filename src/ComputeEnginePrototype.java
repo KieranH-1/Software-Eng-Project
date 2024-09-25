@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComputeEnginePrototype {
 	
@@ -8,6 +10,7 @@ public class ComputeEnginePrototype {
 		// I'm forcing the ComputeEngine component to handle all result formatting as well as the actual computation - since these two things are going
 		// to be very tightly coupled as far as the implementation (how to format a result really depends on what that result represents), this
 		// is reasonable to put in one component, but keeping things more general is also fine. API Design is much more art than science!
-		String result = engine.compute(1);
+		List<Integer> input = new ArrayList<>();
+		String result = engine.compute(input);
 	}
 }
