@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class ComputationCoordinatorPrototype {
 
@@ -7,6 +8,12 @@ public class ComputationCoordinatorPrototype {
 		// the client is going to get input information from somewhere, it could be a List<Integer>, a single int, a csv file with integers,
 		// a database table with integers, etc - that's going to be an implementation detail
 		InputConfig inputConfig = new InputConfig() {
+
+			@Override
+			public List<Integer> getInputData() {
+				// TODO Auto-generated method stub
+				return null;
+			}
 			
 		};
 		
