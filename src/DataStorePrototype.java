@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class DataStorePrototype {
 
@@ -14,7 +15,11 @@ public class DataStorePrototype {
 		// a design that expects to have many possible DataStore implementations that get mix-and-matched with one ComputationCoordinator component might
 		// prefer to force all the input-parsing logic to live in the DataStore
 		InputConfig inputConfig = new InputConfig() {
-
+			@Override
+			public List<Integer> getInputData() {
+				// TODO Auto-generated method stub
+				return null;
+			}
 		};
 		
 		// An example of just using null to indicate 'we haven't decided yet, that's for the implementation'
