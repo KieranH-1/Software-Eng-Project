@@ -1,5 +1,4 @@
 // just chilling for rn
-
 import java.util.List;
 
 public class DataStoreImpl implements DataStore{
