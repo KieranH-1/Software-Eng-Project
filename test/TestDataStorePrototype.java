@@ -17,14 +17,14 @@ public class TestDataStorePrototype {
 		WriteResult mockWriteResult = Mockito.mock(WriteResult.class);
 
 		// MOCK Iterable<Integer> read(InputConfig input);
-		Iterable<Integer> loadData = new read(mockInput);
+		Iterable<Integer> loadData = new mockDataStore().read(mockInput);
 
 		// MOCK WriteResult appendSingleResult(OutputConfig output, String result);
-		WriteResult mockAppend = new appendSingleResult(mockOutput, result);
+		WriteResult mockAppend = new mockDataStore().appendSingleResult(mockOutput, result);
 		
 		//TEST read
 		//@Test
-		loadData = mockDataStore.read(mockInput);
+		loadData = read(mockInput);
 		if (loadData != mockInput){
 			fail();
 		}
@@ -33,7 +33,7 @@ public class TestDataStorePrototype {
 		//@Test
 		for (int i : loadData){
 			String result = "" + i;
-			WriteResult mockWriteResult = mockDataStore.appendSingleResult(mockOutput, result);
+			WriteResult mockWriteResult = appendSingleResult(mockOutput, result);
 			if (writeResult.getStatus() != WriteResult.WriteResultStatus.SUCCESS){
 				System.out.println("Oh no.");
 			}
