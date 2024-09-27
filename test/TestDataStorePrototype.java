@@ -5,40 +5,19 @@ import static org.mockito.Mockito.when;
 
 public class TestDataStorePrototype {
 	public void testDataStore(){
-		// Mocking out all input/output, + DataStore in order to test
-
-		// MOCK InputConfig inputConfig = new InputConfig()
+// in progress working thru issues 
 		InputConfig mockInput = Mockito.mock(InputConfig.class);
-		// MOCK OutputConfig outputConfig = null;
 		OutputConfig mockOutput = Mockito.mock(OutputConfig.class);
-		// MOCK DataStore
 		DataStore mockDataStore = Mockito.mock(DataStore.class);
-		// MOCK WriteResult
 		WriteResult mockWriteResult = Mockito.mock(WriteResult.class);
 
-		// MOCK Iterable<Integer> read(InputConfig input);
-		Iterable<Integer> loadData = new /*mockDataStore().*/read(mockInput);
+		Iterable<Integer> loadData = new mockDataStore.read(mockInput);
+		WriteResult mockAppend = new appendSingleResult(mockOutput, result);
 
-		// MOCK WriteResult appendSingleResult(OutputConfig output, String result);
-		WriteResult mockAppend = new /*mockDataStore().*/appendSingleResult(mockOutput, result);
-
-		/*
-		//TEST read
-		//@Test
-		loadData = read(mockInput);
-		if (loadData != mockInput){
-			fail();
+		@Test
+		if (loadData == null) {
+            		fail();
 		}
-			
-		//TEST append
-		//@Test
-		for (int i : loadData){
-			String result = "" + i;
-			WriteResult mockWriteResult = appendSingleResult(mockOutput, result);
-			if (writeResult.getStatus() != WriteResult.WriteResultStatus.SUCCESS){
-				System.out.println("Oh no.");
-			}
-		}
-		*/
+		
 	}
 }
