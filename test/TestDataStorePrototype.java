@@ -11,13 +11,17 @@ public class TestDataStorePrototype {
 		DataStore mockDataStore = Mockito.mock(DataStore.class);
 		WriteResult mockWriteResult = Mockito.mock(WriteResult.class);
 
-		Iterable<Integer> loadData = new mockDataStore.read(mockInput);
+		Iterable<Integer> loadData = new read(mockInput);
 		WriteResult mockAppend = new appendSingleResult(mockOutput, result);
 
 		@Test
 		if (loadData == null) {
             		fail();
 		}
+		
+		String result = "result";
+        	when(mockDataStore.appendSingleResult(mockOutput, result)).thenReturn(mockWriteResult);
+		
 		
 	}
 }
