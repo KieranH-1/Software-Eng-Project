@@ -11,8 +11,8 @@ public class TestDataStorePrototype {
 		DataStore mockDataStore = Mockito.mock(DataStore.class);
 		WriteResult mockWriteResult = Mockito.mock(WriteResult.class);
 
-		Iterable<Integer> loadData = new read(mockInput);
-		WriteResult mockAppend = new appendSingleResult(mockOutput, result);
+		Iterable<Integer> loadData = mockDataStore.read(mockInput);
+		//WriteResult mockAppend = new appendSingleResult(mockOutput, result);
 
 		@Test
 		if (loadData == null) {
@@ -21,6 +21,12 @@ public class TestDataStorePrototype {
 		
 		String result = "result";
         	when(mockDataStore.appendSingleResult(mockOutput, result)).thenReturn(mockWriteResult);
+
+		WriteResult mockAppend = mockDataStore.appendSingleResult(mockOutput, result);
+        
+       		if (mockAppend == null) {
+            		fail("mockAppend should not be null");
+        	}
 		
 		
 	}
