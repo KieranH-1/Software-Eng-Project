@@ -1,4 +1,3 @@
-package edu.softwareeng.sample;
 
 import static org.mockito.Mockito.when;
 
