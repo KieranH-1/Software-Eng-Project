@@ -2,7 +2,7 @@
 
 import java.util.Collections;
 
-import edu.softwareeng.sample.WriteResult.WriteResultStatus;
+import WriteResult.WriteResultStatus;
 
 public class DataStoreImpl implements DataStore {
 
