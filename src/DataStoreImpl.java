@@ -2,8 +2,6 @@
 
 import java.util.Collections;
 
-import WriteResult.WriteResultStatus;
-
 public class DataStoreImpl implements DataStore {
 
 	@Override
