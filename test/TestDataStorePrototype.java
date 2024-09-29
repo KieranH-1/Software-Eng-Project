@@ -4,6 +4,7 @@ import org.mockito.Mockito;
 import static org.mockito.Mockito.when;
 
 public class TestDataStorePrototype {
+	@Test
 	public void testDataStore(){
 // in progress working thru issues 
 		InputConfig mockInput = Mockito.mock(InputConfig.class);
@@ -14,7 +15,7 @@ public class TestDataStorePrototype {
 		Iterable<Integer> loadData = mockDataStore.read(mockInput);
 		//WriteResult mockAppend = new appendSingleResult(mockOutput, result);
 
-		@Test
+		
 		if (loadData == null) {
             		fail();
 		}
