@@ -1,4 +1,4 @@
-import java.util.List;
+package edu.softwareeng.sample;
 
 /**
  * API 2: Process-level API between the compute engine and the layer that knows how to read/write 
@@ -19,6 +19,6 @@ import java.util.List;
  * be handled with the return type
  */
 public interface DataStore {
-	List<Integer> read(InputConfig inputConfig);
+	Iterable<Integer> read(InputConfig input);
 	WriteResult appendSingleResult(OutputConfig output, String result);
 }

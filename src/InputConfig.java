@@ -1,5 +1,5 @@
-import java.util.List;
+package edu.softwareeng.sample;
 
 public interface InputConfig {
-	public List<Integer> getInputData();
+
 }

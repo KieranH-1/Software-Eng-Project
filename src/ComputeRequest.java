@@ -1,3 +1,4 @@
+package edu.softwareeng.sample;
 
 public class ComputeRequest {
 	

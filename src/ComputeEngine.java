@@ -1,5 +1,4 @@
-import java.util.List;
-
+package edu.softwareeng.sample;
 /**
  * API 3: Conceptual API within the compute engine process
  * 
@@ -19,5 +18,5 @@ import java.util.List;
  * from the system specification that it will always be an int, it's fine to just use that as well.
  */
 public interface ComputeEngine {
-	String compute(List<Integer> input);
+	String compute(int value);
 }
