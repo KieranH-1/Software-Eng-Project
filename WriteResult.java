@@ -1,4 +1,3 @@
-package edu.softwareeng.sample;
 public interface WriteResult {
 	WriteResultStatus getStatus();
 	
