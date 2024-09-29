@@ -21,6 +21,6 @@ public class TestDataStorePrototype {
 	public void testDataStoreWrite(){
 		OutputConfig mockOutput = Mockito.mock(OutputConfig.class);
 		DataStore mockDataStore = new DataStoreImpl();
-		Assertions.assertEquals(WriteResultStatus.SUCCESS, dataStore.appendSingleResult(outputConfig, "result").getStatus());
+		Assertions.assertEquals(WriteResultStatus.SUCCESS, dataStore.appendSingleResult(mockOutput, "result").getStatus());
 	}
 }
