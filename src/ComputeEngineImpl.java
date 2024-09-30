@@ -55,34 +55,34 @@ public class ComputeEngineImpl implements ComputeEngine {
 					
 					nextChar = valueString.charAt(i + 1);
 					
-					if(nextChar == '0') {
+					if (nextChar == '0') {
 						valueAsWord += "ten"; 
 					}
-					if(nextChar == '1') {
+					if (nextChar == '1') {
 						valueAsWord += "eleven"; 
 					}
-					if(nextChar == '2') {
+					if (nextChar == '2') {
 						valueAsWord += "twelve"; 
 					}
-					if(nextChar == '3') {
+					if (nextChar == '3') {
 						valueAsWord += "thirteen"; 
 					}
-					if(nextChar == '4') {
+					if (nextChar == '4') {
 						valueAsWord += "fourteen"; 
 					}
-					if(nextChar == '5') {
+					if (nextChar == '5') {
 						valueAsWord += "fifteen"; 
 					}
-					if(nextChar == '6') {
+					if (nextChar == '6') {
 						valueAsWord += "sixteen"; 
 					}
-					if(nextChar == '7') {
+					if (nextChar == '7') {
 						valueAsWord += "seventeen"; 
 					}
-					if(nextChar == '8') {
+					if (nextChar == '8') {
 						valueAsWord += "eighteen"; 
 					}
-					if(nextChar == '9') {
+					if (nextChar == '9') {
 						valueAsWord += "nineteen"; 
 					}
 					
