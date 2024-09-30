@@ -16,7 +16,7 @@ public class CoordinatorImpl implements ComputationCoordinator {
 			InputConfig inputConfig = request.getInputConfig();
 			Iterable<Integer> integers = ds.read(inputConfig);
 
-			if (integers == null || !integers.iterator().hasNext()) {
+			if (integers == null) {
 				return ComputeResult.FAILURE;
 			}
 
