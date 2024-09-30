@@ -17,5 +17,5 @@ public class DataStoreImpl implements DataStore {
 		 * constants for success/failure.
 		 
 		return () -> WriteResultStatus.FAILURE; */
-	}*
+	}
 }
