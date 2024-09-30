@@ -1,4 +1,4 @@
-
+import java.util.*;
 public interface InputConfig {
   public List<Integer> inputData;
   public InputConfig(List<Integer> inputData) {
