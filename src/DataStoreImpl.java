@@ -19,7 +19,7 @@ public class DataStoreImpl implements DataStore {
 			return () -> WriteResult.WriteResultStatus.FAILURE;
 		}
 		
-		output.getOutputMutable().add(result);
+		((InMemoryOutputConfig) output).getOutputMutable().add(result);
 		FileWriter fw = new FileWriter("output.txt");
 	    	BufferedWriter writer = new BufferedWriter(fw);
 	   	writer.write(result);
