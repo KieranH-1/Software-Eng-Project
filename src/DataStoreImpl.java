@@ -1,4 +1,6 @@
-
+import java.io.*;
+import java.nio.*;
+import java.util.*;
 
 import java.util.Collections;
 //import WriteResult.WriteResultStatus;
@@ -12,10 +14,17 @@ public class DataStoreImpl implements DataStore {
 
 	@Override
 	public WriteResult appendSingleResult(OutputConfig output, String result) {
+		if (output == null) {
+			return () -> WriteResult.WriteResultStatus.FAILURE;
+		}
 		
-		 // Using lambda syntax to create an instance of WriteResult. This is an alternative to the ComputeResult approach of providing
-		 // constants for success/failure.
-		 
-		return () -> WriteResult.WriteResultStatus.FAILURE;
+		(output).getOutputMutable().add(result);
+		FileWriter fw = new FileWriter("output.txt");
+	    	BufferedWriter writer = new BufferedWriter(fw);
+	   	writer.write(result);
+	    
+	   	writer.close();
+		
+		return () -> WriteResult.WriteResultStatus.SUCCESS;
 	}
 }
