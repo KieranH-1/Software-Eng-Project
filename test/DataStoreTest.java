@@ -22,7 +22,6 @@ public class DataStoreTest {
         	InputConfig inputConfig = Mockito.mock(InputConfig.class);
         	DataStore dataStore = new DataStoreImpl();
         
-
         	Assertions.assertEquals(Collections.emptyList(), dataStore.read(inputConfig));
    	}
 	
