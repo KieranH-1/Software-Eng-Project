@@ -1,6 +1,6 @@
 import java.util.*;
 public interface InputConfig {
-  public List<Integer> inputData;
+  public List<Integer> inputData = new ArrayList<>();
   public InputConfig(List<Integer> inputData) {
         this.inputData = inputData;
     }
