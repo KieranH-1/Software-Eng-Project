@@ -10,6 +10,6 @@ public class ComputeTest {
 		// write a smoke test with no mocks at all
 		
 		ComputeEngine engine = new ComputeEngineImpl();
-		Assertions.assertEquals("1", engine.compute(1));
+		Assertions.assertEquals("nine-hundred ninety nine", engine.compute(999));
 	}
 }
