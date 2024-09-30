@@ -17,6 +17,14 @@ public class DataStoreTest {
 		DataStore dataStore = new DataStoreImpl();
 		Assertions.assertEquals(1L, dataStore.read(inputConfig));
 	}
+	@Test
+    	public void testEmptyRead() {
+        	InputConfig inputConfig = Mockito.mock(InputConfig.class);
+        	DataStore dataStore = new DataStoreImpl();
+        
+
+        	Assertions.assertEquals(Collections.emptyList(), dataStore.read(inputConfig));
+   	}
 	
 	@Test
 	public void smokeTestWrite() {
