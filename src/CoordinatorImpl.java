@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class CoordinatorImpl implements ComputationCoordinator {
 	
@@ -11,7 +13,30 @@ public class CoordinatorImpl implements ComputationCoordinator {
 
 	@Override
 	public ComputeResult compute(ComputeRequest request) {
-		return ComputeResult.FAILURE;
+			InputConfig inputConfig = request.getInputConfig();
+			Iterable<Integer> integers = ds.read(inputConfig);
+
+			if (integers == null) {
+				return ComputeResult.FAILURE;
+			}
+
+			OutputConfig outputConfig = request.getOutputConfig();
+			for (Integer integer : integers) {
+				String result = ce.compute(integer);
+
+				if (result == null) {
+					return ComputeResult.FAILURE;
+				}
+
+				WriteResult writeResult = ds.appendSingleResult(outputConfig, result);
+				if (writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
+					return ComputeResult.FAILURE;
+				}
+			}
+
+			return ComputeResult.SUCCESS;
+		}
 	}
 
-}
+
+
