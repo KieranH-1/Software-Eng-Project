@@ -1,3 +1,4 @@
+
 public interface WriteResult {
 	WriteResultStatus getStatus();
 	
