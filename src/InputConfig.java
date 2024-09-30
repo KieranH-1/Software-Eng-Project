@@ -5,7 +5,7 @@ public interface InputConfig {
         this.inputData = inputData;
     }
 
-    public List<String> getInputData() {
+    public List<Integer> getInputData() {
         return inputData;
     }
 
