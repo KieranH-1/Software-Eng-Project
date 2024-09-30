@@ -10,7 +10,8 @@ public class DataStoreImpl implements DataStore {
 
 	@Override
 	public Iterable<Integer> read(InputConfig input) {
-		return Collections.emptyList(); // eventually this will be a stream, but for now always return 0 elements
+		return ((InMemoryInputConfig)input).getInputs();
+		//return Collections.emptyList(); // eventually this will be a stream, but for now always return 0 elements
 	}
 
 	@Override
