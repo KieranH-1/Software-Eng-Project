@@ -17,13 +17,19 @@ public class DataStoreTest {
 		DataStore dataStore = new DataStoreImpl();
 		Assertions.assertEquals(1L, dataStore.read(inputConfig));
 	}
+
 	@Test
-    	public void testEmptyRead() {
-        	InputConfig inputConfig = Mockito.mock(InputConfig.class);
-        	DataStore dataStore = new DataStoreImpl();
+	public void smokeTestEmpty() {
+		OutputConfig outputConfig = Mockito.mock(OutputConfig.class);
+
+		DataStore dataStore = new DataStoreImpl();
+		
+        	WriteResult result = dataStore.appendSingleResult(outputConfig, "");
         
-        	Assertions.assertEquals(Collections.emptyList(), dataStore.read(inputConfig));
-   	}
+        	Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
+        	result = dataStore.appendSingleResult(outputConfig, null);
+        	Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
+	}
 	
 	@Test
 	public void smokeTestWrite() {
