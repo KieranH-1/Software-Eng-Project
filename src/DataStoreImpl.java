@@ -10,8 +10,7 @@ public class DataStoreImpl implements DataStore {
 
 	@Override
 	public Iterable<Integer> read(InputConfig input) {
-		return ((InMemoryInputConfig)input).getInputs();
-		//return Collections.emptyList(); // eventually this will be a stream, but for now always return 0 elements
+		
 	}
 
 	@Override
@@ -20,7 +19,6 @@ public class DataStoreImpl implements DataStore {
 			return () -> WriteResult.WriteResultStatus.FAILURE;
 		}
 		
-		((InMemoryOutputConfig) output).getOutputMutable().add(result);
 		FileWriter fw = new FileWriter("output.txt");
 	    	BufferedWriter writer = new BufferedWriter(fw);
 	   	writer.write(result);
