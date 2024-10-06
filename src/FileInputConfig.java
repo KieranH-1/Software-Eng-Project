@@ -5,7 +5,6 @@ public class FileInputConfig implements InputConfig {
         this.fileName = fileName;
     }
 
-    @Override
     public String getFileName() {
         return fileName;
     }
