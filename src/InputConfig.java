@@ -1,4 +1,4 @@
-public interface InputConfig {
+public class InputConfig {
 	private String fileName;
 
 	public InputConfig(String fileName) {
