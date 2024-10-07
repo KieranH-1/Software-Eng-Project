@@ -5,6 +5,10 @@ public class ComputeEngineImpl implements ComputeEngine {
 	@Override
 	public String compute(int value) {
 		
+		if (value < 0 || value > 999) {
+			throw new IllegalArgumentException("Invalid number, please choose between 0-999.");
+		}
+		
 		String valueString = "" + value;
 		String valueAsWord = "";
 		final int length = valueString.length();
@@ -87,33 +91,34 @@ public class ComputeEngineImpl implements ComputeEngine {
 					}
 					
 					i = length;
-				}		
-				if (currentChar == '2') {
-					valueAsWord += "twenty"; 
+				} else {	
+					if (currentChar == '2') {
+						valueAsWord += "twenty"; 
+					}
+					if (currentChar == '3') {
+						valueAsWord += "thirty"; 
+					}
+					if (currentChar == '4') {
+						valueAsWord += "fourty"; 
+					}
+					if (currentChar == '5') {
+						valueAsWord += "fifty"; 
+					}
+					if (currentChar == '6') {
+						valueAsWord += "sixty"; 
+					}
+					if (currentChar == '7') {
+						valueAsWord += "seventy"; 
+					}
+					if (currentChar == '8') {
+						valueAsWord += "eighty"; 
+					}
+					if (currentChar == '9') {
+						valueAsWord += "ninety"; 
+					}
+	
+					valueAsWord += " ";
 				}
-				if (currentChar == '3') {
-					valueAsWord += "thirty"; 
-				}
-				if (currentChar == '4') {
-					valueAsWord += "fourty"; 
-				}
-				if (currentChar == '5') {
-					valueAsWord += "fifty"; 
-				}
-				if (currentChar == '6') {
-					valueAsWord += "sixty"; 
-				}
-				if (currentChar == '7') {
-					valueAsWord += "seventy"; 
-				}
-				if (currentChar == '8') {
-					valueAsWord += "eighty"; 
-				}
-				if (currentChar == '9') {
-					valueAsWord += "ninety"; 
-				}
-
-				valueAsWord += " ";
 			}
 			if ((length == 1) || (i == 1 && length == 2) || (i == 2 && length == 3)) {
 				if (currentChar == '0') {
