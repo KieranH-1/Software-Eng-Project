@@ -1,4 +1,4 @@
 public interface InputConfig {
-	String getFileName();
+	public String getFileName();
 }
 
