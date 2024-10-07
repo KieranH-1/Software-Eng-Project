@@ -36,12 +36,14 @@ public class DataStoreImpl implements DataStore {
 		if (output == null) {
 			return () -> WriteResult.WriteResultStatus.FAILURE;
 		}
-		
-		FileWriter fw = new FileWriter("output.txt");
-	    	BufferedWriter writer = new BufferedWriter(fw);
-	   	writer.write(result);
-	    
-	   	writer.close();
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(output.getFileName(), true))) {
+            	writer.write(result);
+            	writer.newLine();
+            	return () -> WriteResult.WriteResultStatus.SUCCESS;
+        	} catch (IOException e) {
+            		e.printStackTrace();
+            		return () -> WriteResult.WriteResultStatus.FAILURE;
+        	}
 		
 		return () -> WriteResult.WriteResultStatus.SUCCESS;
 	}
