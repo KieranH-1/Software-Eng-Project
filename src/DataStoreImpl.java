@@ -44,7 +44,5 @@ public class DataStoreImpl implements DataStore {
             		e.printStackTrace();
             		return () -> WriteResult.WriteResultStatus.FAILURE;
         	}
-		
-		return () -> WriteResult.WriteResultStatus.SUCCESS;
 	}
 }
