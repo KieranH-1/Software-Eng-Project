@@ -17,19 +17,6 @@ public class DataStoreTest {
 		DataStore dataStore = new DataStoreImpl();
 		Assertions.assertEquals(1L, dataStore.read(inputConfig));
 	}
-
-	@Test
-	public void smokeTestEmpty() {
-		OutputConfig outputConfig = Mockito.mock(OutputConfig.class);
-
-		DataStore dataStore = new DataStoreImpl();
-		
-        	WriteResult result = dataStore.appendSingleResult(outputConfig, "");
-        
-        	Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
-        	result = dataStore.appendSingleResult(outputConfig, null);
-        	Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
-	}
 	
 	@Test
 	public void smokeTestWrite() {
@@ -44,5 +31,19 @@ public class DataStoreTest {
 		// Note that if your dummy implementation returns null, this will NPE - that's fine! As long as the test fails,
 		// the exact failure doesn't matter
 		Assertions.assertEquals(WriteResult.WriteResultStatus.SUCCESS, dataStore.appendSingleResult(outputConfig, "result").getStatus());
+	}
+	
+	// edge case or error handling, maybe writing empty and return null
+	@Test
+	public void smokeTestEmpty() {
+		OutputConfig outputConfig = Mockito.mock(OutputConfig.class);
+
+		DataStore dataStore = new DataStoreImpl();
+		
+        WriteResult result = dataStore.appendSingleResult(outputConfig, "");
+        
+        Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
+        result = dataStore.appendSingleResult(outputConfig, null);
+        Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
 	}
 }
