@@ -1,3 +1,4 @@
+
 public class FileInputConfig implements InputConfig {
     private String fileName;
 
@@ -9,3 +10,4 @@ public class FileInputConfig implements InputConfig {
         return fileName;
     }
 }
+
