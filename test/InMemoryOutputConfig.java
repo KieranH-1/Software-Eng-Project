@@ -7,7 +7,7 @@ public class InMemoryOutputConfig implements OutputConfig {
 	
 	// Still make things final; we know this will end up being mutable data,
 	// but we can at least contain the mutability
-	private final List<String> output = new ArrayList<>();
+	private List<String> output = new ArrayList<>();
 	
 	// No explicit constructor needed
 	

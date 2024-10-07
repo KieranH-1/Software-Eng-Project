@@ -20,20 +20,23 @@ public class CoordinatorImpl implements ComputationCoordinator {
 				return ComputeResult.FAILURE;
 			}
 
-			OutputConfig outputConfig = request.getOutputConfig();
-			for (Integer integer : integers) {
-				String result = ce.compute(integer);
-
-				if (result == null) {
-					return ComputeResult.FAILURE;
+			try  {
+				OutputConfig outputConfig = request.getOutputConfig();
+				for (Integer integer : integers) {
+					String result = ce.compute(integer);
+				
+					if (result == null) {
+						return ComputeResult.FAILURE;
+					}
+				
+					WriteResult writeResult = ds.appendSingleResult(outputConfig, result);
+					if (writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
+						return ComputeResult.FAILURE;
+					}
 				}
-
-				WriteResult writeResult = ds.appendSingleResult(outputConfig, result);
-				if (writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
-					return ComputeResult.FAILURE;
-				}
+			} catch (Exception e) {
+				
 			}
-
 			return ComputeResult.SUCCESS;
 		}
 	}
