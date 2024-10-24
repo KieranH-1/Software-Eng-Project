@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import java.util.Collection;
+import java.util.Collections;
 /*
  * In this case, I've split out the smoke tests into two tests, one per method. It's also fine to consolidate
  * these into a single test
@@ -15,7 +16,7 @@ public class DataStoreTest {
 		InputConfig inputConfig = Mockito.mock(InputConfig.class);
 		
 		DataStore dataStore = new DataStoreImpl();
-		Assertions.assertEquals(1L, dataStore.read(inputConfig));
+		Assertions.assertEquals(Collections.emptyList(), dataStore.read(inputConfig));
 	}
 
 	@Test
@@ -24,11 +25,11 @@ public class DataStoreTest {
 
 		DataStore dataStore = new DataStoreImpl();
 		
-        	WriteResult result = dataStore.appendSingleResult(outputConfig, "");
+        WriteResult result = dataStore.appendSingleResult(outputConfig, "");
         
-        	Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
-        	result = dataStore.appendSingleResult(outputConfig, null);
-        	Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
+        Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
+        result = dataStore.appendSingleResult(outputConfig, null);
+        Assertions.assertEquals(WriteResult.WriteResultStatus.FAILURE, result.getStatus());
 	}
 	
 	@Test
