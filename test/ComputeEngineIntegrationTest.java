@@ -46,9 +46,9 @@ public class ComputeEngineIntegrationTest {
 		// In this case, the expected output of a computation is just calling toString on the Integer (note: don't do this for your computation,
 		// it is very much *not* CPU intensive)
 		List<String> expected = new ArrayList<>();
-		expected.add("1");
-		expected.add("10");
-		expected.add("25");
+		expected.add("one");
+		expected.add("ten");
+		expected.add("twenty five");
 		
 		// If everything worked, we should have written out these results to the output
 		Assertions.assertEquals(expected, output.getOutputMutable());
