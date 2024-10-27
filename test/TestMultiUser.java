@@ -31,7 +31,7 @@ public class TestMultiUser {
 		int nThreads = 4;
 		List<TestUser> testUsers = new ArrayList<>();
 		for (int i = 0; i < nThreads; i++) {
-			testUsers.add(new TestUser(coordinator));
+			testUsers.add(new TestUser (coordinator) );
 		}
 		
 		// Run single threaded
@@ -40,7 +40,7 @@ public class TestMultiUser {
 			File singleThreadedOut = 
 					new File(singleThreadFilePrefix + i);
 			singleThreadedOut.deleteOnExit();
-			testUsers.get(i).run(singleThreadedOut.getCanonicalPath());
+			testUsers.get(i).run( singleThreadedOut.getCanonicalPath() );
 		}
 		
 		// Run multi threaded
@@ -53,7 +53,7 @@ public class TestMultiUser {
 			multiThreadedOut.deleteOnExit();
 			String multiThreadOutputPath = multiThreadedOut.getCanonicalPath();
 			TestUser testUser = testUsers.get(i);
-			results.add(threadPool.submit(() -> testUser.run(multiThreadOutputPath)));
+			results.add( threadPool.submit(() -> testUser.run( multiThreadOutputPath) ) );
 		}
 		
 		results.forEach(future -> {
