@@ -14,6 +14,11 @@ public class DataStorePrototype {
 		// a design that expects to have many possible DataStore implementations that get mix-and-matched with one ComputationCoordinator component might
 		// prefer to force all the input-parsing logic to live in the DataStore
 		InputConfig inputConfig = new InputConfig() {
+			@Override
+			public String getFileName() {
+				// TODO Auto-generated method stub
+				return null;
+			}
 
 		};
 		
