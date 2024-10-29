@@ -8,6 +8,7 @@ public class InMemoryOutputConfig implements OutputConfig {
 	// Still make things final; we know this will end up being mutable data,
 	// but we can at least contain the mutability
 	private final List<String> output = new ArrayList<>();
+	private String fileName;
 	
 	// No explicit constructor needed
 	
@@ -15,11 +16,13 @@ public class InMemoryOutputConfig implements OutputConfig {
 	// it's good to include that in variable/method names as a heads-up to anyone reading the code later
 	public List<String> getOutputMutable() {
 		return output;
-
+		
+	public InMemoryOutputConfig(String fileName) {
+        	this.fileName = fileName;
+    	}
 	@Override
 	public String getFileName() {
-		// TODO Auto-generated method stub
-		return null;
+		return fileName;
 	}
 
 }
