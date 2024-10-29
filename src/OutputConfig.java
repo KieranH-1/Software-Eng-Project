@@ -1,4 +1,4 @@
 
 public interface OutputConfig {
-    public String getFileName;
+    public String getFileName();
 }
