@@ -23,7 +23,6 @@ public class InMemoryOutputConfig implements OutputConfig {
 		return output;
 	}
 	
-	@Override
 	public String getFileName() {
 		return fileName;
 	}
