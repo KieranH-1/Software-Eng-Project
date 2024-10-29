@@ -14,6 +14,10 @@ public class DataStoreImpl implements DataStore {
 	@Override
 	public Iterable<Integer> read(InputConfig input) {
 		List<Integer> userIntegers = new ArrayList<>();
+		// new addition test
+		if(input == null) {
+			return null;
+		}
 
 		try (BufferedReader br = new BufferedReader(new FileReader(input.getFileName() ) ) ) {
 			String line;
