@@ -6,7 +6,6 @@ public class FileOutputConfig implements OutputConfig {
         this.fileName = fileName;
     }
 
-    @Override
     public String getFileName() {
         return fileName;
     }
