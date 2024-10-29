@@ -15,7 +15,7 @@ public class DataStoreImpl implements DataStore {
 	public Iterable<Integer> read(InputConfig input) {
 		List<Integer> userIntegers = new ArrayList<>();
 		// new addition test
-		if(input == null) {
+		if (input == null) {
 			return null;
 		}
 
