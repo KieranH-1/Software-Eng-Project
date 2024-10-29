@@ -16,7 +16,7 @@ public class InMemoryOutputConfig implements OutputConfig {
 	// it's good to include that in variable/method names as a heads-up to anyone reading the code later
 	public List<String> getOutputMutable() {
 		return output;
-		
+	}
 	public InMemoryOutputConfig(String fileName) {
         	this.fileName = fileName;
     	}
