@@ -1,4 +1,4 @@
-public class FileOutputConfig /*implements OutputConfig*/ {
+public class FileOutputConfig implements OutputConfig {
     private String fileName;
 
     public FileOutputConfig(String fileName) {
