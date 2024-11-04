@@ -1,6 +1,8 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -21,9 +23,18 @@ public class DataStoreTest {
 	public void smokeTestRead() {
 		// While there aren't any dependencies for this component, we can mock out the parameters
 		InputConfig inputConfig = Mockito.mock(InputConfig.class);
+		Mockito.when(inputConfig.getFileName()).thenReturn("dataStoreTests.txt");
 		
 		DataStore dataStore = new DataStoreImpl();
-		Assertions.assertEquals(Collections.emptyList(), dataStore.read(inputConfig));
+		List<Integer> expected = new ArrayList<>();
+		
+		expected.add(1);
+		expected.add(2);
+		expected.add(3);
+		expected.add(4);
+		expected.add(5);
+		
+		Assertions.assertEquals(expected, dataStore.read(inputConfig));
 	}
 
 	@Test
@@ -46,6 +57,7 @@ public class DataStoreTest {
 		// This is optional; for simple parameters, if it's easier to use a real one (like String),
 		// feel free to do that
 		OutputConfig outputConfig = Mockito.mock(OutputConfig.class);
+		Mockito.when(outputConfig.getFileName()).thenReturn("testOutputFile.txt");
 		
 		DataStore dataStore = new DataStoreImpl();
 		
