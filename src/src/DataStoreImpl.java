@@ -22,11 +22,16 @@ public class DataStoreImpl implements DataStore {
 			return null;
 		}
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(input.getFileName() ) ) ) {
+		try (BufferedReader br = new BufferedReader(new FileReader(input.getFileName()))) {
 			String line;
 			while ((line = br.readLine()) != null) {
 				try {
-					userIntegers.add(Integer.parseInt(line.trim()));
+					String[] userIntArray = line.split(",");
+					
+					for (String integer : userIntArray) {
+						userIntegers.add(Integer.parseInt(integer));
+					}
+					
 				} catch (NumberFormatException e) {
 					System.err.println("Integer is invalid :( :" + line);
 				}
@@ -48,10 +53,11 @@ public class DataStoreImpl implements DataStore {
             	writer.write(result);
             	writer.newLine();
             	return () -> WriteResult.WriteResultStatus.SUCCESS;
-        	} catch (IOException e) {
-            		e.printStackTrace();
-            		return () -> WriteResult.WriteResultStatus.FAILURE;
-        	}
+        } catch (NullPointerException e) {
+            	return () -> WriteResult.WriteResultStatus.FAILURE;
+        } catch (IOException e) {
+        	return () -> WriteResult.WriteResultStatus.FAILURE;
+    }
 	}
 
 }
