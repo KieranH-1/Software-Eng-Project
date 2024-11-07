@@ -1,0 +1,13 @@
+package src;
+
+message ComputeRequest{
+	int32 inputNum = 1;
+}
+
+message ComputeResponse{
+	string result = 1;
+}
+
+service ComputeService {
+    rpc performComputation (ComputeRequest) returns (ComputeResponse);
+}
