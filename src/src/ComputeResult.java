@@ -19,4 +19,9 @@ public interface ComputeResult {
 			return success;
 		}
 	}
+
+	static ComputeResult newBuilder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

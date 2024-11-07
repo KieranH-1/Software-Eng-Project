@@ -7,4 +7,9 @@ public interface WriteResult {
 		SUCCESS,
 		FAILURE;
 	}
+
+	static Object newBuilder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

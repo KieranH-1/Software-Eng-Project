@@ -29,4 +29,9 @@ public class ComputeRequest {
 		return outputConfig;
 	}
 
+	public static Object newBuilder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
