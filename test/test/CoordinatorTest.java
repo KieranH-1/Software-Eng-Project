@@ -13,7 +13,7 @@ import src.DataStore;
 import src.InputConfig;
 
 public class CoordinatorTest {
-/* Temporary commented to enable build gradle
+
 	@Test
 	public void smokeTest() {
 		// mock out the dependencies so that we're just checking the ComputationCoordinator
@@ -24,6 +24,8 @@ public class CoordinatorTest {
 		
 		// mock out the parameters
 		ComputeRequest mockRequest = Mockito.mock(ComputeRequest.class);
+		Mockito.when(mockRequest.getInputConfig()).thenReturn(new InMemoryInputConfig());
+		Mockito.when(mockRequest.getOutputConfig()).thenReturn(new InMemoryOutputConfig());
 		ComputeResult result = coord.compute(mockRequest);
 		
 		// simple check for right now - just say the result must be successful
@@ -46,5 +48,5 @@ public class CoordinatorTest {
 		ComputeResult result = coord.compute(mockRequest);
 
 		Assertions.assertEquals(ComputeResult.ComputeResultStatus.FAILURE, result.getStatus());
-	}*/
+	}
 }
