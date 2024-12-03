@@ -3,8 +3,6 @@ result
 result
 result
 result
-<<<<<<< Updated upstream
-=======
 result
 result
 result
@@ -15,4 +13,5 @@ result
 result
 result
 result
->>>>>>> Stashed changes
+result
+

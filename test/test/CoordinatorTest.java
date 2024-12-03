@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,20 +14,22 @@ import src.ComputeResult;
 import src.CoordinatorImpl;
 import src.DataStore;
 import src.InputConfig;
+import src.OutputConfig;
 
 public class CoordinatorTest {
-/* Temporary commented to enable build gradle
+
 	@Test
 	public void smokeTest() {
 		// mock out the dependencies so that we're just checking the ComputationCoordinator
 		DataStore dataStore = Mockito.mock(DataStore.class);
 		ComputeEngine computeEngine = Mockito.mock(ComputeEngine.class);
-		
+		InMemoryInputConfig inputConfig = new InMemoryInputConfig();javascript:void(0);
+		InMemoryOutputConfig outputConfig = new InMemoryOutputConfig();	
 		ComputationCoordinator coord = new CoordinatorImpl(dataStore, computeEngine);
 		
 		// mock out the parameters
-		ComputeRequest mockRequest = Mockito.mock(ComputeRequest.class);
-		ComputeResult result = coord.compute(mockRequest);
+		ComputeRequest request = new ComputeRequest(inputConfig, outputConfig);
+		ComputeResult result = coord.compute(request);
 		
 		// simple check for right now - just say the result must be successful
 		Assertions.assertEquals(result.getStatus(), ComputeResult.ComputeResultStatus.SUCCESS);
@@ -46,5 +51,5 @@ public class CoordinatorTest {
 		ComputeResult result = coord.compute(mockRequest);
 
 		Assertions.assertEquals(ComputeResult.ComputeResultStatus.FAILURE, result.getStatus());
-	}*/
+	}
 }
