@@ -42,7 +42,7 @@ public class TestMultiUser {
 		
 		// Run single threaded
 		String singleThreadFilePrefix = "test" + File.separatorChar + "testMultiUser.compareMultiAndSingleThreaded.test.singleThreadOut.tmp";
-		for (int i = 0; i < nThreads; i++) {
+		for (int i = 0; i < numberThreads; i++) {
 			File singleThreadedOut = 
 					new File(singleThreadFilePrefix + i);
 			singleThreadedOut.createNewFile();
@@ -81,7 +81,7 @@ public class TestMultiUser {
 
 	private List<String> loadAllOutput(String prefix, int numberThreads) throws IOException {
 		List<String> result = new ArrayList<>();
-		for (int i = 0; i < nThreads; i++) {
+		for (int i = 0; i < numberThreads; i++) {
 			File multiThreadedOut = 
 					new File(prefix + i);
 			result.addAll(Files.readAllLines(multiThreadedOut.toPath()));
