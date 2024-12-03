@@ -34,9 +34,9 @@ public class TestMultiUser {
 
 	@Test
 	public void compareMultiAndSingleThreaded() throws Exception {
-		int nThreads = 4;
+		int numberThreads = 4;
 		List<TestUser> testUsers = new ArrayList<>();
-		for (int i = 0; i < nThreads; i++) {
+		for (int i = 0; i < numberThreads; i++) {
 			testUsers.add(new TestUser(coordinator));
 		}
 		
