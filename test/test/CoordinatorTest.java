@@ -28,8 +28,6 @@ public class CoordinatorTest {
 		ComputationCoordinator coord = new CoordinatorImpl(dataStore, computeEngine);
 		
 		// mock out the parameters
-		ComputeRequest request = new ComputeRequest(inputConfig, outputConfig);
-		ComputeResult result = coord.compute(request);
 		ComputeRequest mockRequest = Mockito.mock(ComputeRequest.class);
 		Mockito.when(mockRequest.getInputConfig()).thenReturn(new InMemoryInputConfig());
 		Mockito.when(mockRequest.getOutputConfig()).thenReturn(new InMemoryOutputConfig());
