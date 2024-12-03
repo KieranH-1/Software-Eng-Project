@@ -54,7 +54,7 @@ public class TestMultiUser {
 		ExecutorService threadPool = Executors.newCachedThreadPool();
 		List<Future<?>> results = new ArrayList<>();
 		String multiThreadFilePrefix = "test" + File.separatorChar + "testMultiUser.compareMultiAndSingleThreaded.test.multiThreadOut.tmp";
-		for (int i = 0; i < nThreads; i++) {
+		for (int i = 0; i < numberThreads; i++) {
 			File multiThreadedOut = 
 					new File(multiThreadFilePrefix + i);
 			multiThreadedOut.createNewFile();
@@ -79,7 +79,7 @@ public class TestMultiUser {
 		Assert.assertEquals(singleThreaded, multiThreaded);
 	}
 
-	private List<String> loadAllOutput(String prefix, int nThreads) throws IOException {
+	private List<String> loadAllOutput(String prefix, int numberThreads) throws IOException {
 		List<String> result = new ArrayList<>();
 		for (int i = 0; i < nThreads; i++) {
 			File multiThreadedOut = 
