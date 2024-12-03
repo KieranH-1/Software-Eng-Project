@@ -23,7 +23,7 @@ public class CoordinatorTest {
 		// mock out the dependencies so that we're just checking the ComputationCoordinator
 		DataStore dataStore = Mockito.mock(DataStore.class);
 		ComputeEngine computeEngine = Mockito.mock(ComputeEngine.class);
-		InMemoryInputConfig inputConfig = new InMemoryInputConfig();javascript:void(0);
+		InMemoryInputConfig inputConfig = new InMemoryInputConfig();
 		InMemoryOutputConfig outputConfig = new InMemoryOutputConfig();	
 		ComputationCoordinator coord = new CoordinatorImpl(dataStore, computeEngine);
 		
