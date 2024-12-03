@@ -30,6 +30,10 @@ public class CoordinatorTest {
 		// mock out the parameters
 		ComputeRequest request = new ComputeRequest(inputConfig, outputConfig);
 		ComputeResult result = coord.compute(request);
+		ComputeRequest mockRequest = Mockito.mock(ComputeRequest.class);
+		Mockito.when(mockRequest.getInputConfig()).thenReturn(new InMemoryInputConfig());
+		Mockito.when(mockRequest.getOutputConfig()).thenReturn(new InMemoryOutputConfig());
+		ComputeResult result = coord.compute(mockRequest);
 		
 		// simple check for right now - just say the result must be successful
 		Assertions.assertEquals(result.getStatus(), ComputeResult.ComputeResultStatus.SUCCESS);

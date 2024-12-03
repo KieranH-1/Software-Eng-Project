@@ -62,8 +62,12 @@ public class CoordinatorImpl implements ComputationCoordinator {
 
 			return ComputeResult.SUCCESS;
 
+		} catch (RuntimeException r) {
+			
+			return ComputeResult.FAILURE;
 		} catch (Exception e) {
-			throw new IllegalStateException("An unexpected error occurred: ", e );
+		
+			throw new IllegalStateException("An unexpected error occurred: " + e, e );
 		}
 	}
 }
