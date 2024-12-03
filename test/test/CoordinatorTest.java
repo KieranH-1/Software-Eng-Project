@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,6 +14,7 @@ import src.ComputeResult;
 import src.CoordinatorImpl;
 import src.DataStore;
 import src.InputConfig;
+import src.OutputConfig;
 
 public class CoordinatorTest {
 
@@ -19,7 +23,8 @@ public class CoordinatorTest {
 		// mock out the dependencies so that we're just checking the ComputationCoordinator
 		DataStore dataStore = Mockito.mock(DataStore.class);
 		ComputeEngine computeEngine = Mockito.mock(ComputeEngine.class);
-		
+		InMemoryInputConfig inputConfig = new InMemoryInputConfig();
+		InMemoryOutputConfig outputConfig = new InMemoryOutputConfig();	
 		ComputationCoordinator coord = new CoordinatorImpl(dataStore, computeEngine);
 		
 		// mock out the parameters
