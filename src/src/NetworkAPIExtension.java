@@ -1,6 +1,6 @@
 package src;
 
-import src.ComputeServiceGrpc.ComputeServiceImplBase;
+import ComputeServiceGrpc.ComputeServiceImplBase;
 
 public class NetworkAPIExtension extends ComputeServiceImplBase{
 // 
