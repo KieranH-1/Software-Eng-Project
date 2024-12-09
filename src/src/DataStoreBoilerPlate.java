@@ -3,8 +3,11 @@ package src;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import io.grpc.Grpc;
+import io.grpc.InsecureServerCredentials;
+
 public class DataStoreBoilerPlate {
-	private Server server;
+	private io.grpc.Server server;
 
     private void start() throws IOException {
       /* The port on which the server should run */
