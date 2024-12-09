@@ -1,10 +1,18 @@
 package src;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class CoordinatorImpl implements ComputationCoordinator {
-	
+
 	private final DataStore ds;
 	private final ComputeEngine ce;
-	
+
+	private static final int THREAD_POOL_SIZE = 4;
+	private final ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+
 	public CoordinatorImpl(DataStore ds, ComputeEngine ce) {
 		if (ds == null) {
 			throw new IllegalArgumentException("DataStore cannot be null.");
@@ -18,8 +26,6 @@ public class CoordinatorImpl implements ComputationCoordinator {
 
 	@Override
 	public ComputeResult compute(ComputeRequest request) {
-			
-			try {
 			//Validates that the ComputeRequest is not null
 			if (request == null) {
 				throw new IllegalArgumentException("ComputeRequest cannot be null.");
@@ -30,7 +36,10 @@ public class CoordinatorImpl implements ComputationCoordinator {
 			if (inputConfig == null) {
 				throw new IllegalArgumentException("InputConfig cannot be null.");
 			}
-			Iterable<Integer> integers = ds.read(inputConfig);
+			try {
+				Iterable<Integer> integers = ds.read(inputConfig);
+			
+			
 
 			if (integers == null) {
 				return ComputeResult.FAILURE;
@@ -41,18 +50,22 @@ public class CoordinatorImpl implements ComputationCoordinator {
 			if (outputConfig == null) {
 				throw new IllegalArgumentException("OutputConfig cannot be null.");
 			}
+
+			List<Future<String>> futures = new ArrayList<>();
+
 			for (Integer integer : integers) {
 				//Validates that the input integers are not null
 				if (integer == null) {
 					throw new IllegalArgumentException("Input integers cannot be null.");
 				}
+				futures.add(executor.submit(() -> ce.compute(integer)));
+			}
 
-				String result = ce.compute(integer);
-
+			for (Future<String> future : futures) {
+				String result = future.get();
 				if (result == null) {
 					return ComputeResult.FAILURE;
 				}
-
 				WriteResult writeResult = ds.appendSingleResult(outputConfig, result);
 				if (writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
 					return ComputeResult.FAILURE;
@@ -61,15 +74,11 @@ public class CoordinatorImpl implements ComputationCoordinator {
 
 			return ComputeResult.SUCCESS;
 
-		} catch (RuntimeException r) {
-			
-			return ComputeResult.FAILURE;
 		} catch (Exception e) {
-		
-			throw new IllegalStateException("An unexpected error occurred: " + e, e );
-		}
+			return ComputeResult.FAILURE;
+		} finally {
+				executor.shutdown();
+			}
 	}
 }
-
-
 

@@ -27,8 +27,6 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14/"/>
-	<classpathentry kind="lib" path="C:/Users/Molly Slater/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/annotations-api/6.0.53/94cfa8a6ebc6b36e966bff433d4eeebf933f3f41/annotations-api-6.0.53.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value=""/>
 		</attributes>
