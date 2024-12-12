@@ -1,7 +1,10 @@
 package src;
 
+import com.google.rpc.context.AttributeContext.Response;
+
 public class Request {
 
+	private static final Response DEFAULT_INSTANCE = null;
 	private final int value1;
 	private final int value2;
 	
@@ -17,4 +20,8 @@ public class Request {
 	public int getValue2() {
 		return value2;
 	}
+	
+	public static com.google.rpc.context.AttributeContext.Response getDefaultInstance() {
+	      return DEFAULT_INSTANCE;
+	    }
 }
