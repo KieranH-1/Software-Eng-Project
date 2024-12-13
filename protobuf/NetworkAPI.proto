@@ -1,0 +1,17 @@
+package protobuf;
+
+message InputRequest{
+	optional int32 inputNum = 1;
+}
+
+message InputResponse{
+	optional string result = 1;
+}
+
+message TaskSuccess{
+	optional bool task = 1;
+}
+
+service ComputeService {
+    rpc performComputation (InputRequest) returns (InputResponse);
+}

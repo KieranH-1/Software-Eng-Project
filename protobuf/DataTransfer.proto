@@ -1,0 +1,21 @@
+package protobuf;
+
+message ComputeRequest{
+	optional int32 input = 1;
+	optional InputConfig inputConfig = 2;
+	optional OutputConfig outputConfig = 3;
+	optional string delimiter = 4;
+}
+
+message ComputeResponse{
+	optional WriteResult status = 1;
+} 
+
+service DataStoreService{
+	rpc appendSingleResult(WriteOutputRequest) returns (WriteResult);
+    rpc read(InputConfig) returns (userInteger);
+}
+
+service ComputationCoordinatorService{
+	rpc compute(Request) returns (WriteResult);
+}
