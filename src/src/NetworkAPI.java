@@ -1674,7 +1674,7 @@ public final class NetworkAPI {
         internal_static_src_TaskSuccess_descriptor,
         new java.lang.String[] { "Task", });
   }
-  
+  /*
 public static ServerServiceDefinition newInstance() {
 	MethodDescriptor<Request, Response> methodDescriptor =
 		    MethodDescriptor<Request, Response> methodDescriptor =
@@ -1699,6 +1699,6 @@ public static ServerServiceDefinition newInstance() {
             }))
             .build();
 }
-
+*/
   // @@protoc_insertion_point(outer_class_scope)
 }
