@@ -41,16 +41,6 @@ public class NetworkAPIExtension extends ComputeServiceImplBase{
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
-
-	/*
-public void performComputation(src.NetworkAPI.InputRequest request,
-		io.grpc.stub.StreamObserver<src.NetworkAPI.InputResponse> responseObserver) {
-	     //replace w actual implementation
-		//io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPerformComputationMethod(), responseObserver);
-		//request.coordinator
-	
-		
-	}*/
 	
 
 }
