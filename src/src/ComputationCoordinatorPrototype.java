@@ -12,7 +12,6 @@ public class ComputationCoordinatorPrototype {
 				// TODO Auto-generated method stub
 				return null;
 			}
-			
 		};
 		
 		// An example of just using null to indicate 'we haven't decided yet, that's for the implementation'
