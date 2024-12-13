@@ -11,7 +11,7 @@ public class DataStoreBoilerPlate {
 
     private void start() throws IOException {
       /* The port on which the server should run */
-      int port = 27027; // Boilerplate TODO: Consider changing the port (only one server per port)
+      int port = 26026; // Boilerplate TODO: Consider changing the port (only one server per port)
       
       server = Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
           //.addService(new DataStoreServerImpl())

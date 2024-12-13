@@ -1,15 +1,21 @@
 package src;
 
 import src.ComputeServiceGrpc.ComputeServiceImplBase;
+import src.ComputeEngineImpl;
+import src.DataStoreImpl;
 
 public class NetworkAPIExtension extends ComputeServiceImplBase{
 	
-	private CoordinatorImpl coordinator;
+	private CoordinatorImpl coordinator = null;
 
-	public NetworkAPIExtension(){
-		this.coordinator = new CoordinatorImpl(new DataStoreImpl(), new ComputeEngineImpl());		
+	public NetworkAPIExtension() {
+		this.coordinator = new CoordinatorImpl(new DataStoreImpl(), new ComputeEngineImpl() );
 	}
-
+	
+	public void performComputation() {
+		
+	}
+/*
 	public void performComputation(Request request, StreamObserver<Response>) {
 		Response request;
 		
@@ -41,6 +47,6 @@ public class NetworkAPIExtension extends ComputeServiceImplBase{
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
-	
+	*/
 
 }
