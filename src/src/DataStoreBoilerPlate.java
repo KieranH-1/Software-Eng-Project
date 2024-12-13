@@ -14,7 +14,7 @@ public class DataStoreBoilerPlate {
       int port = 26026; // Boilerplate TODO: Consider changing the port (only one server per port)
       
       server = Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
-          //.addService(new DataStoreServerImpl())
+          //.addService(new DataStoreImpl())
           .addService(NetworkAPI.newInstance())
           .build()
           .start();

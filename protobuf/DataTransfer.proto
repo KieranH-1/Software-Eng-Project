@@ -1,0 +1,19 @@
+package protobuf;
+
+message ComputeRequest{
+	int32 input = 1;
+	InputConfig inputConfig = 2;
+	OutputConfig = outputConfig = 3;
+}
+
+message ComputeResponse{
+
+}
+
+service DataStoreService{
+
+}
+
+service ComputationCoordinatorService{
+
+}
