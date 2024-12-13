@@ -1,6 +1,9 @@
 package src;
 
 import src.ComputeServiceGrpc.ComputeServiceImplBase;
+
+import com.google.rpc.context.AttributeContext.Response;
+
 import src.ComputeEngineImpl;
 import src.DataStoreImpl;
 
@@ -12,8 +15,8 @@ public class NetworkAPIExtension extends ComputeServiceImplBase{
 		this.coordinator = new CoordinatorImpl(new DataStoreImpl(), new ComputeEngineImpl() );
 	}
 	
-	public void performComputation() {
-		
+	public void performComputation(Request request) {
+		Response requestResponse;
 	}
 /*
 	public void performComputation(Request request, StreamObserver<Response>) {
