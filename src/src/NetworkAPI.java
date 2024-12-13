@@ -1677,16 +1677,26 @@ public final class NetworkAPI {
   
 public static ServerServiceDefinition newInstance() {
 	MethodDescriptor<Request, Response> methodDescriptor =
+		    MethodDescriptor<Request, Response> methodDescriptor =
             MethodDescriptor.<Request, Response>newBuilder()
                 .setType(MethodDescriptor.MethodType.UNARY)
                 .setFullMethodName(MethodDescriptor.generateFullMethodName("MyService", "myMethod"))
                 .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(Request.getDefaultInstance()))
-                .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(Response.getDefaultInstance()))
+                .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(Response.getDefaultInstance())) // Ensure the request marshaller is set
                 .build();
 
-        // Create the service definition with a simple method
-        return ServerServiceDefinition.builder("MyService")
-            .addMethod(methodDescriptor, ServerCalls.asyncUnaryCall(new MethodHandleNode()))
+    // Create the service definition with a simple method
+    return ServerServiceDefinition.builder("MyService")
+            .addMethod(methodDescriptor, ServerCalls.asyncUnaryCall(new ServerCalls.UnaryMethod<Request, Response>() {
+                @Override
+                public void invoke(Request request, StreamObserver<Response> responseObserver) {
+                    // Your method implementation logic here
+                    // Example: creating a response based on the request
+                    Response response = Response.newBuilder().build();
+                    responseObserver.onNext(response);
+                    responseObserver.onCompleted();
+                }
+            }))
             .build();
 }
 

@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 
-public class DataStoreBoilerPlate {
+public class UserBoilerPlate {
 	private io.grpc.Server server;
 
     private void start() throws IOException {
@@ -46,10 +46,9 @@ public class DataStoreBoilerPlate {
     }
 
     public static void main(String[] args) throws Exception {
-    	DataStoreBoilerPlate server = new DataStoreBoilerPlate();
+    	UserBoilerPlate server = new UserBoilerPlate();
         server.start();
         server.blockUntilShutdown();
     }
-
 
 }
