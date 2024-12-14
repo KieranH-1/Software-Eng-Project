@@ -6,8 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import grpc.ComputeServiceGrpc.ComputeServiceImplBase;
 import io.grpc.stub.StreamObserver;
+import src.ComputeServiceGrpc.ComputeServiceImplBase;
 
 public class ComputeServiceImpl extends ComputeServiceImplBase {
 	private final DataStore ds;
@@ -27,13 +27,13 @@ public class ComputeServiceImpl extends ComputeServiceImplBase {
 		this.ce = ce;
 	}
 
-	public void compute(package.ComputeServiceOuterClass.ComputeRequest request,
-			StreamObserver<outer.ComputeServiceOuterClass.ComputeResult> resultObserver) {
+	public void compute(ComputeServiceOuterClass.ComputeRequest request,
+			StreamObserver<ComputeServiceOuterClass.ComputeResult> resultObserver) {
 			
 		String inputFile = request.getInputFile();
 		String outputFile = request.getOutputFile();
 		String delim = request.getDelim();
-		outer.ComputeServiceOuterClass.ComputeResult result;
+		ComputeServiceOuterClass.ComputeResult result;
 		
 		//Validates that the ComputeRequest is not null
 		if (request == null) {
@@ -68,18 +68,16 @@ public class ComputeServiceImpl extends ComputeServiceImplBase {
 			for (Future<String> future : futures) {
 				String result = future.get();
 				if (result == null) {
-					return ComputeResult.FAILURE;
+					throw new RuntimeException();
 				}
 				WriteResult writeResult = ds.appendSingleResult(outputConfig, result);
 				if (writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
-					return ComputeResult.FAILURE;
+					throw new RuntimeException();
 				}
 			}
-	
-			return ComputeResult.SUCCESS;
 
 		} catch (Exception e) {
-			return ComputeResult.FAILURE;
+			throw new RuntimeException();
 		} finally {
 			executor.shutdown();
 		}

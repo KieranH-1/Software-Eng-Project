@@ -2,10 +2,6 @@ package src;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
-import outer.ComputeServiceOuterClass;
-import outer.ComputeServiceOuterClass.ComputeRequest;
-import outer.ComputeServiceOuterClass.ComputeResult;
-
 /**
  */
 @javax.annotation.Generated(
