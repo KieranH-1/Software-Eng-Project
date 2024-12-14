@@ -16,7 +16,7 @@ public class Main {
             System.out.print("Please specify a file you would like to use as your input: ");
             String inputPath = sc.nextLine();
             File inputFile = new File(inputPath);
-            if(!inputFile.exists() || !inputFile.isFile()) {
+            if (!inputFile.exists() || !inputFile.isFile()) {
                 System.out.println("Error: Input file does not exist or is not a valid file.");
                 return;
             }
@@ -28,9 +28,14 @@ public class Main {
             FileInputConfig input = new FileInputConfig(inputPath);
             FileOutputConfig output = new FileOutputConfig(outputPath);
             ComputeRequest request = new ComputeRequest(input, output);
+
+            long start = System.currentTimeMillis();
             
             ComputeResult result = coordinator.compute(request);
+            long end = System.currentTimeMillis();
+            long totalTime = end - start;
             System.out.println("Computation Result: " + result.getStatus());
+            System.out.println("Done in " + totalTime + " milliseconds.");
 
         } catch (Exception e) {
             System.out.println("An error occurred during computation: ");
@@ -39,8 +44,6 @@ public class Main {
             coordinator.close();
             sc.close();
         }
-
-
 
     }
 
