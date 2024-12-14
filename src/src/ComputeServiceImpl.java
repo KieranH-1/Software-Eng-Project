@@ -27,13 +27,13 @@ public class ComputeServiceImpl extends ComputeServiceImplBase {
 		this.ce = ce;
 	}
 
-	public void compute(package.ComputeServiceOuterClass.ComputeRequest request,
-			StreamObserver<outer.ComputeServiceOuterClass.ComputeResult> resultObserver) {
+	public void compute(ComputeServiceOuterClass.ComputeRequest request,
+			StreamObserver<ComputeServiceOuterClass.ComputeResult> resultObserver) {
 			
 		String inputFile = request.getInputFile();
 		String outputFile = request.getOutputFile();
 		String delim = request.getDelim();
-		outer.ComputeServiceOuterClass.ComputeResult result;
+		ComputeServiceOuterClass.ComputeResult result;
 		
 		//Validates that the ComputeRequest is not null
 		if (request == null) {
