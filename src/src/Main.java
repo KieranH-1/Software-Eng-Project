@@ -16,7 +16,7 @@ public class Main {
             System.out.print("Please specify a file you would like to use as your input: ");
             String inputPath = sc.nextLine();
             File inputFile = new File(inputPath);
-            if(!inputFile.exists() || !inputFile.isFile()) {
+            if (!inputFile.exists() || !inputFile.isFile()) {
                 System.out.println("Error: Input file does not exist or is not a valid file.");
                 return;
             }
