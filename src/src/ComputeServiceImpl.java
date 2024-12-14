@@ -66,11 +66,11 @@ public class ComputeServiceImpl extends ComputeServiceImplBase {
 			}
 	
 			for (Future<String> future : futures) {
-				String result = future.get();
-				if (result == null) {
+				String res = future.get();
+				if (res == null) {
 					throw new RuntimeException();
 				}
-				WriteResult writeResult = ds.appendSingleResult(outputConfig, result);
+				WriteResult writeResult = ds.appendSingleResult(outputConfig, res);
 				if (writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
 					throw new RuntimeException();
 				}
