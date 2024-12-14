@@ -1,0 +1,14 @@
+
+message ComputeRequest {
+    optional string inputFile = 1;
+    optional string outputFile = 2;
+    optional string delim = 3;
+}
+
+message ComputeResult {
+    optional bool success = 1;
+}
+
+service ComputeService {
+    rpc Compute (ComputeRequest) returns (ComputeResult) {}
+}
