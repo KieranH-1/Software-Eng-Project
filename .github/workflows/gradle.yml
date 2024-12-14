@@ -36,4 +36,4 @@ jobs:
     - name: Build with Gradle Wrapper
       # run: chmod a+rwx gradlew; ./gradlew compileJava compileTestJava
       run: chmod a+rwx gradlew; ./gradlew generateProto
-        chmod a+rwx gradlew; ./gradlew build
+        ./gradlew build
