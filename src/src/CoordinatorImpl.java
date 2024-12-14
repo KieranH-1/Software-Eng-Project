@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 public class CoordinatorImpl implements ComputationCoordinator {
 
@@ -75,10 +76,25 @@ public class CoordinatorImpl implements ComputationCoordinator {
 			return ComputeResult.SUCCESS;
 
 		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Failure reason: " + e.getMessage());
 			return ComputeResult.FAILURE;
 		} finally {
 				executor.shutdown();
 			}
 	}
+
+	public void close() {
+		executor.shutdown();
+		try {
+			if (!executor.awaitTermination(THREAD_POOL_SIZE, TimeUnit.SECONDS)) {
+				executor.shutdown();
+			}
+		} catch (InterruptedException e){
+			executor.shutdownNow();
+			Thread.currentThread().interrupt();
+		}
+	}
+
 }
 
