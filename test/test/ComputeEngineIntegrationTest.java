@@ -55,7 +55,7 @@ public class ComputeEngineIntegrationTest {
 		List<String> expected = new ArrayList<>();
 		expected.add("one");
 		expected.add("ten");
-		expected.add("twenty five");
+		expected.add("twenty-five");
 		
 		// If everything worked, we should have written out these results to the output
 		Assertions.assertEquals(expected, output.getOutputMutable());
