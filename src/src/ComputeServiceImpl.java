@@ -27,7 +27,7 @@ public class ComputeServiceImpl extends ComputeServiceImplBase {
 		this.ce = ce;
 	}
 
-	public void compute(outer.ComputeServiceOuterClass.ComputeRequest request,
+	public void compute(package.ComputeServiceOuterClass.ComputeRequest request,
 			StreamObserver<outer.ComputeServiceOuterClass.ComputeResult> resultObserver) {
 			
 		String inputFile = request.getInputFile();

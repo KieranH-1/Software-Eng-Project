@@ -30,18 +30,18 @@ public class ComputeServiceServer {
         System.out.println("Server started on port " + port);
         
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Type 1 to enter a file, type 2 to enter a list of integers: ");
+        System.out.println("Type 1 to enter a file, type 2 to enter a list of integers:");
         int choice = keyboard.nextInt();
         
         int inputNum = 0;
         List<Integer> inputs = new ArrayList<Integer>();
         if(choice == 1) {
-        	System.out.println("Enter the name of the file: ");
+        	System.out.println("Enter the name of the file:");
         	String inputFileName = keyboard.next();
         	
         	
         } else if(choice == 2) {
-        	System.out.println("Enter the list of integers (enter '-1' when done): ");
+        	System.out.println("Enter the list of integers (enter '-1' when done):");
         	while(inputNum != -1) {
         		inputNum = keyboard.nextInt();
         		if(inputNum != -1) {
